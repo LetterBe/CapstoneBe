@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.2</version>
+		<version>2.6.5</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.github.gossie</groupId>
-	<artifactId>spring-boot-react-bundle-parent</artifactId>
+	<groupId>com.github.LetterBe</groupId>
+	<artifactId>organizeyourself-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-react-bundle-parent</name>
+	<name>organizeyourself-parent</name>
 	<packaging>pom</packaging>
 	
 	<properties>
