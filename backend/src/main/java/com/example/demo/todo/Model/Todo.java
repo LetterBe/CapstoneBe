@@ -1,5 +1,7 @@
-package com.example.demo.todo;
+package com.example.demo.todo.Model;
 
+import com.example.demo.todo.TodoCategory;
+import com.example.demo.todo.TodoStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +19,10 @@ public class Todo {
     private String description;
     private TodoCategory category;
     private TodoStatus status;
-    private String user;
+    private String createdBy;
 
-}
+    }
+
+
 
 
