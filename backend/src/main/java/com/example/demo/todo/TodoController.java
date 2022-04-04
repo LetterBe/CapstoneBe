@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/todos")
+@CrossOrigin
 @RequiredArgsConstructor
 public class TodoController {
 
     private final TodoService todoService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<TodoDTO> createTodo (@RequestBody TodoDTO todo) {
         return ResponseEntity
                 .status(201)

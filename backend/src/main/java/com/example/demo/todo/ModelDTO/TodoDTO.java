@@ -17,15 +17,16 @@ public class TodoDTO {
     private String description;
     private TodoCategory category;
     private TodoStatus status;
+    private String createdBy;
 
 
     public static TodoDTO of (Todo todo) {
-        return new TodoDTO( todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus());
+        return new TodoDTO( todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus(), todo.getCreatedBy());
 
     }
 
     public Todo toTodo() {
-        return new Todo (null, task, description, category, status, null);
+        return new Todo (null, task, description, category, status, createdBy);
     }
 
 }
