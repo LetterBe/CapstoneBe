@@ -27,5 +27,14 @@ public class TodoService {
     public Optional<Todo> findById(String id) {
             return todoRepository.findById(id);
         }
+    public Optional<Todo> updateTodo (String id, Todo updatedTodo) {
+        return todoRepository.findById(id)
+                .map(todo -> todo.update(updatedTodo))
+                .map(todoRepository::save);
+    }
+
+    public void deleteById(String id){
+        todoRepository.deleteById(id);
+    }
 
 }
