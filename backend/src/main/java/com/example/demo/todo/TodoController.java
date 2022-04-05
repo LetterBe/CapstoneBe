@@ -35,7 +35,24 @@ public class TodoController {
    @GetMapping("{id}")
     public ResponseEntity<TodoDTO> getTodo(@PathVariable String id) {
        return ResponseEntity.of(todoService.findById(id)
-                       .map(todo -> TodoDTO.of(todo)));
+               .map(todo -> TodoDTO.of(todo)));
 
    }
+
+   @PutMapping ("/{id}")
+    public ResponseEntity<TodoDTO> updateTodo(@PathVariable String id, @RequestBody TodoDTO todo) {
+        return ResponseEntity.of(todoService.updateTodo(id, todo.toTodo())
+                        .map(updatedTodo -> TodoDTO.of(updatedTodo)));
+
+        }
+
+   @DeleteMapping("/{id}")
+    public Collection<TodoDTO> deleteTodoById(@PathVariable String id) {
+        todoService.deleteById(id);
+        return todoService.findAll().stream()
+                .map(todoToDelete -> TodoDTO.of(todoToDelete))
+                .toList();
+   }
+
+
 }

@@ -24,6 +24,15 @@ public class Todo {
     public Todo() {
 
     }
+
+    public Todo update(Todo updatedTodo) {
+        task = updatedTodo.getTask();
+        description = updatedTodo.getDescription();
+        category = updatedTodo.getCategory();
+        status = updatedTodo.getStatus();
+        createdBy = updatedTodo.getCreatedBy();
+        return this;
+    }
 }
 
 

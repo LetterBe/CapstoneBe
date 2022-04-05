@@ -13,6 +13,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -71,6 +73,36 @@ public class TodoServiceTest {
 
     }
 
+    @Test
+    @DisplayName("test to update/change a Todo")
+    void shouldUpdateTodo () {
+        Todo todoInDB = new Todo ("111", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo todoToUpdate = new Todo ("111", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo updatedTodo = new Todo ("111","write protocol" , "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+
+        TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
+        when(todoRepository.findById("111")).thenReturn(Optional.of(todoInDB));
+        when(todoRepository.save(todoToUpdate)).thenReturn(updatedTodo);
+
+        TodoService todoService = new TodoService(todoRepository);
+
+        Assertions.assertThat(todoService.updateTodo("111",new Todo( "111", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara"))).containsSame(updatedTodo);
+    }
+
+    @Test
+    @DisplayName("test to delete one Todo by its id")
+    void shouldDeleteTodoById() {
+
+        TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
+
+        TodoService todoService = new TodoService(todoRepository);
+
+        todoService.deleteById("333");
+
+        Mockito.verify(todoRepository).deleteById("333");
 
 
+
+    }
 }
+
