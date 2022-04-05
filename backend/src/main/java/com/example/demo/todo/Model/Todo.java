@@ -21,7 +21,10 @@ public class Todo {
     private TodoStatus status;
     private String createdBy;
 
+    public Todo() {
+
     }
+}
 
 
 
