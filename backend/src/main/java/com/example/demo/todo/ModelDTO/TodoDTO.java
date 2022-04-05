@@ -29,7 +29,4 @@ public class TodoDTO {
         return new Todo (null, task, description, category, status, createdBy);
     }
 
-    public Todo getId(String id) {
-        return new Todo ();
-    }
 }
