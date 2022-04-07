@@ -13,7 +13,6 @@ export default function TodoEdit(props: TodoFormProps) {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('Work');
     const [createdBy, setCreatedBy] = useState('Me');
-    const [status, setStatus] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
@@ -95,7 +94,7 @@ export default function TodoEdit(props: TodoFormProps) {
             method: 'DELETE',
         })
             .then(response => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     return response.json()
                 }
                 throw new Error("Error to delete Task")
@@ -106,6 +105,7 @@ export default function TodoEdit(props: TodoFormProps) {
     return (
 
         <div>
+            {errorMessage}
             <input type="text" value={task} onChange={ev => setTask(ev.target.value)}/> <br/>
             <textarea rows={2} value={description} onChange={ev => setDescription(ev.target.value)}/> <br/>
             <select value={category} onChange={ev => setCategory(ev.target.value)}>
