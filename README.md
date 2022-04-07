@@ -1,6 +1,6 @@
-# spring-boot-react-bundle
+# OrganizeYourself
 
-This is a demo project that shows how it is possible to deploy a react frontend and a Spring Boot backend into a heroku dyno. The following paragraphs describe the actions you need to perform.
+All your tasks in one place to be managed by more than one user. Allows you to share tasks, let you know if it is already done or not plus by whom and, finally, rewards you when you are done with a task!
 
 ## Creating an heroku app
 When creating the heroku app I recommend to use the heroku cli. Use the following commands to create the app and add the required buildpack.
