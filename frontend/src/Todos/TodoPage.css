@@ -1,5 +1,7 @@
 .app {
+    background-color: lightgoldenrodyellow;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around ;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+
 }

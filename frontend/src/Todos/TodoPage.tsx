@@ -21,9 +21,9 @@ export default function TodoPage() {
 
     return (
         <div className='app'>
-            <form>
-                {todos.map((todo) => <TodoItem todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
-            </form>
+            <ul>
+                {todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
+            </ul>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo} />
         </div>
 

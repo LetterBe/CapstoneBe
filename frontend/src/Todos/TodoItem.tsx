@@ -1,12 +1,16 @@
 
 import {TodoDTO} from "./TodoDTOModel";
+import {useState} from "react";
 
 interface TodoItemProps {
     todoItem : TodoDTO;
     onTodoSelected : (todoItem : TodoDTO) => void;
     onTodoChange: () => void;
 }
+
 export default function TodoItem (props: TodoItemProps) {
+
+    const [errorMessage, setErrorMessage] =useState('')
 
     const toggleItem = () => {
         const changedTodoItem = props.todoItem;
@@ -30,7 +34,8 @@ export default function TodoItem (props: TodoItemProps) {
                     props.onTodoChange();
                 }
             )
-    }
+            .catch((e: Error) => {setErrorMessage(e.message)}
+    ) }
 
 
 
@@ -40,7 +45,7 @@ export default function TodoItem (props: TodoItemProps) {
             <h5>description: {props.todoItem.description}</h5>
             <h5>category: {props.todoItem.category}</h5>
             <h5>by: {props.todoItem.createdBy}</h5>
-
+            <div>{errorMessage}</div>
         </li>
 
     )

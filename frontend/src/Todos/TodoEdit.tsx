@@ -99,15 +99,15 @@ export default function TodoEdit(props: TodoFormProps) {
                 }
                 throw new Error("Error to delete Task")
             })
-            .then(() => props.onTodoChange());
+            .then(() => props.onTodoChange())
+            .catch(e => setErrorMessage(e.message))
     }
 
     return (
-
         <div>
             {errorMessage}
-            <input type="text" value={task} onChange={ev => setTask(ev.target.value)}/> <br/>
-            <textarea rows={2} value={description} onChange={ev => setDescription(ev.target.value)}/> <br/>
+            <input type="text"  placeholder="write here your task" value={task} onChange={ev => setTask(ev.target.value)}/> <br/>
+            <textarea rows={3} placeholder="write here your description"  value={description} onChange={ev => setDescription(ev.target.value)}/> <br/>
             <select value={category} onChange={ev => setCategory(ev.target.value)}>
                 <option value={"Me"}>me</option>
                 <option value={"Work"}>work</option>
@@ -117,7 +117,7 @@ export default function TodoEdit(props: TodoFormProps) {
                 <option value={"Health"}>health</option>
                 <option value={"Others"}>others</option>
             </select> <br/>
-            <input type="text" value={createdBy} onChange={ev => setCreatedBy(ev.target.value)}/>
+            <input type="text" placeholder= "write here by whom" value={createdBy} onChange={ev => setCreatedBy(ev.target.value)}/>
             <button onClick={() => AddOrEdit()}>Save</button>
             <button onClick={deleteTodo}>Delete</button>
         </div>
