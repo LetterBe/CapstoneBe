@@ -49,7 +49,6 @@ public class TodoController {
    @DeleteMapping("/{id}")
     public Collection<TodoDTO> deleteTodoById(@PathVariable String id) {
         todoService.deleteById(id);
-
         return todoService.findAll().stream()
                 .map(todoToDelete -> TodoDTO.of(todoToDelete))
                 .toList();

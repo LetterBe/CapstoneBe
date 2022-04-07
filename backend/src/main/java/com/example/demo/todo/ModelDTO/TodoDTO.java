@@ -13,20 +13,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TodoDTO {
 
+    private String id;
     private String task;
     private String description;
     private TodoCategory category;
-    private TodoStatus status;
+    private boolean status;
     private String createdBy;
 
 
     public static TodoDTO of (Todo todo) {
-        return new TodoDTO( todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus(), todo.getCreatedBy());
+        return new TodoDTO(todo.getId(), todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus()==TodoStatus.Done, todo.getCreatedBy());
 
     }
 
     public Todo toTodo() {
-        return new Todo (null, task, description, category, status, createdBy);
+        return new Todo (id, task, description, category, status?TodoStatus.Done: TodoStatus.Open , createdBy);
     }
 
 }

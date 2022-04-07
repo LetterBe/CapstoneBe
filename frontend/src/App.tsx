@@ -1,13 +1,17 @@
 import React from 'react';
-import TodoForm from "./todoForm/TodoForm";
-import TodoList from "./todoList/todoList";
+import TodoPage from "./Todos/TodoPage";
+
 
 function App() {
 
+    /*const todoUpdated = ()=> {
+        alert("succeded!")
+    };*/
+
+
     return (
         <div>
-            <TodoForm />
-            <TodoList />
+            <TodoPage />
         </div>
     );
 }
