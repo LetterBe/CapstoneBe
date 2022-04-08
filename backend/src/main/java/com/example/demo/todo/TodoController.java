@@ -11,7 +11,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/todos")
-@CrossOrigin
+//later delete it when it is in production
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RequiredArgsConstructor
 public class TodoController {
 
