@@ -1,4 +1,4 @@
-package User;
+package com.example.demo.user;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -11,8 +11,9 @@ public class UserDocument {
     @Id
     private String id;
     private String userName;
-    private String password;
     private String email;
+    private String password;
+
 
 }
 

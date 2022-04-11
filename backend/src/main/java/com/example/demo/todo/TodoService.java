@@ -1,13 +1,10 @@
 package com.example.demo.todo;
 
-import com.example.demo.todo.Model.Todo;
-import com.example.demo.todo.ModelDTO.TodoDTO;
+import com.example.demo.todo.model.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
