@@ -1,7 +1,7 @@
-package User;
+package com.example.demo.user;
 
-import Login.LoginData;
-import Security.JwtService;
+import com.example.demo.login.LoginData;
+import com.example.demo.security.JwtService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;

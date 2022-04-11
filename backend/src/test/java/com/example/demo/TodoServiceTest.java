@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.example.demo.todo.*;
 
-import com.example.demo.todo.Model.Todo;
+import com.example.demo.todo.model.Todo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

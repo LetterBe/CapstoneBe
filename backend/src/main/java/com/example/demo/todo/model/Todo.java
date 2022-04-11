@@ -1,10 +1,9 @@
-package com.example.demo.todo.Model;
+package com.example.demo.todo.model;
 
 import com.example.demo.todo.TodoCategory;
 import com.example.demo.todo.TodoStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

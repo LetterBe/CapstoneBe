@@ -1,6 +1,6 @@
-package com.example.demo.todo.ModelDTO;
+package com.example.demo.todo.modelDTO;
 
-import com.example.demo.todo.Model.Todo;
+import com.example.demo.todo.model.Todo;
 import com.example.demo.todo.TodoCategory;
 import com.example.demo.todo.TodoStatus;
 import lombok.AllArgsConstructor;

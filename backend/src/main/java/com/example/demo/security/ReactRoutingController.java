@@ -1,4 +1,4 @@
-package Security;
+package com.example.demo.security;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
