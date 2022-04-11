@@ -22,7 +22,7 @@ export default function TodoPage() {
     return (
         <div className='app'>
             <ul>
-                {todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
+                {todos.length > 1 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
             </ul>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo} />
         </div>
