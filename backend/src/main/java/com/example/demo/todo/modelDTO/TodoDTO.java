@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class TodoDTO {
 
     private String id;
+    private String userEmail;
     private String task;
     private String description;
     private TodoCategory category;
@@ -21,13 +22,13 @@ public class TodoDTO {
     private String createdBy;
 
 
-    public static TodoDTO of (Todo todo) {
-        return new TodoDTO(todo.getId(), todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus()==TodoStatus.Done, todo.getCreatedBy());
+    public static TodoDTO of(Todo todo) {
+        return new TodoDTO(todo.getId(), todo.getUserEmail(), todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus() == TodoStatus.Done, todo.getCreatedBy());
 
     }
 
     public Todo toTodo() {
-        return new Todo (id, task, description, category, status?TodoStatus.Done: TodoStatus.Open , createdBy);
+        return new Todo(id, userEmail, task, description, category, status ? TodoStatus.Done : TodoStatus.Open, createdBy);
     }
 
 }

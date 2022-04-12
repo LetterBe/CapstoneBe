@@ -14,6 +14,7 @@ public class Todo {
 
     @Id
     private String id;
+    private String userEmail;
     private String task;
     private String description;
     private TodoCategory category;
