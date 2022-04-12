@@ -10,7 +10,12 @@ export default function TodoPage() {
     const [selectedTodo, setSelectedTodo] = useState({} as TodoDTO)
 
     const fetchAll= () => {
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/todos`)
+        const token = localStorage.getItem('token')
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/todos`, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
             .then(response => response.json())
             .then((responseBody: TodoDTO []) => setTodos(responseBody));
     }
@@ -22,7 +27,7 @@ export default function TodoPage() {
     return (
         <div className='app'>
             <ul>
-                {todos.length > 1 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
+                {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}  onTodoSelected={setSelectedTodo} onTodoChange={fetchAll} />)}
             </ul>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo} />
         </div>

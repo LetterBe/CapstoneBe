@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Register from "./register/Register";
 import Login from "./login/Login";
 import Logout from "./login/Logout";
+import TodoPage from "./todos/TodoPage";
 
 
 
@@ -14,6 +15,7 @@ ReactDOM.render(
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<App/>}>
+                        <Route path='tasks' element={<TodoPage/>} />
                         <Route path='register' element={<Register/>} />
                         <Route path='login' element={<Login />}/>
                         <Route path='logout' element={<Logout />}/>

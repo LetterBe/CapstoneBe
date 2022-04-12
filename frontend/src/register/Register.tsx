@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const Register = () => {
@@ -6,10 +6,10 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [passwordAgain, setPasswordAgain] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
-    const nav = useNavigate()
+    const navigate = useNavigate()
 
-    debugger
-    const register = () => {
+    const register = (event : FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
         if (!(password === passwordAgain)) {
             setErrorMessage('Passwords are different');
         }else{
@@ -19,18 +19,18 @@ const Register = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: email,
+                    email: email,
                     password: password
                 })
             })
                 .then(response => {
-                    if(response.status === 201) {
-                        return response.text()
+                    if(response.status === 200) {
+                        return response.json()
                     }
                     throw new Error ('This username already exists')
                 })
                 .then(() => {
-                    nav('/login')
+                    navigate('/login')
                 })
                 .catch(e => setErrorMessage((e.message)))
         }
@@ -44,14 +44,16 @@ const Register = () => {
 
     return (
         <div>
-            <h3>You are new by OY? Then register yourself:</h3>
+            <h4>You are new by OY? Then register yourself:</h4>
+            <form onSubmit={register}>
             <input type='tex' placeholder='Email' value={email}
                    onChange={ev => setEmail(ev.target.value)}/> <br/>
             <input type='password' placeholder='Password' value={password}
-                   onChange={ev => setPassword(ev.target.value)}/>
-            <input type='password' placeholder='Again your password' value={passwordAgain}
+                   onChange={ev => setPassword(ev.target.value)}/><br/>
+            <input type='password' placeholder='Your password again' value={passwordAgain}
                    onChange={ev => setPasswordAgain(ev.target.value)} /> <br/>
-            <button onClick={register}>Register</button>
+            <button type='submit'>Register</button>
+            </form>
         </div>
     )
 

@@ -33,17 +33,14 @@ export default function TodoEdit(props: TodoFormProps) {
             addTodo()
         }
     }
+
     const addTodo = () => {
         const token = localStorage.getItem('token')
-        setTask('')
-        setDescription('')
-        setCategory('')
-        setCreatedBy('')
         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + token
+                'Authorization': 'Bearer ' + token
 
             },
             body: JSON.stringify({

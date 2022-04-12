@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 
@@ -10,7 +10,8 @@ const Login = () => {
     const navigate = useNavigate()
 
 
-    const login = () => {
+    const login = (event : FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
         fetch(`${process.env.REACT_APP_BASE_URL}/api/login`, {
             method: 'POST',
             headers: {
@@ -33,7 +34,7 @@ const Login = () => {
                 localStorage.setItem("username", emailLogin)
                 setEmailLogin("")
                 setPassword("")
-                navigate("../")
+                navigate("/tasks")
             })
     }
 
@@ -43,12 +44,15 @@ const Login = () => {
 
     return (
         <div>
-
-            <input type='text' placeholder='Email' value={emailLogin} onChange={ev => setEmailLogin(ev.target.value)}/>
+            <h4>Login</h4>
+            <form onSubmit={login}>
+            <input type='text' placeholder='Email' value={emailLogin}
+                   onChange={ev => setEmailLogin(ev.target.value)}/>
             <br/>
             <input type='password' placeholder='password' value={password}
                    onChange={ev => setPassword(ev.target.value)}/> <br/>
-            <button onClick={login}>Login</button> <span>{errorMessage}</span>
+            <button type='submit'>Login</button> <span>{errorMessage}</span>
+            </form>
             <br/>
             <br/>
             <h5>Still don't have an account? <br/>

@@ -15,10 +15,12 @@ export default function TodoItem (props: TodoItemProps) {
     const toggleItem = () => {
         const changedTodoItem = props.todoItem;
         changedTodoItem.status = !changedTodoItem.status;
+        const token = localStorage.getItem('token')
         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoItem.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify(
                 changedTodoItem
