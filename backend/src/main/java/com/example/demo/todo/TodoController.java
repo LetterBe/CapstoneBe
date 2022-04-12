@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collection;
 
 @RestController
@@ -23,7 +24,8 @@ public class TodoController {
     }
 
     @GetMapping
-    public Collection<TodoDTO> getTodos (){
+    public Collection<TodoDTO> getTodos (Principal principal){
+        String name = principal.getName();
         return todoService.findAll().stream()
                 .map(todo -> TodoDTO.of(todo))
                 .toList();

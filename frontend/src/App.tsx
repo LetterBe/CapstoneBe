@@ -1,14 +1,16 @@
 import React from 'react';
-import TodoPage from "./Todos/TodoPage";
+import {Outlet} from "react-router-dom";
 
 
 function App() {
+
     
     return (
         <div>
-            <TodoPage />
+            <Outlet />
         </div>
     );
 }
+
 
 export default App;

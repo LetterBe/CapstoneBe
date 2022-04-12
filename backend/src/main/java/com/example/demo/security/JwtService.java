@@ -21,10 +21,10 @@ public class JwtService {
         this.secret = secret;
     }
 
-    public String createToken(Map<String, Object> claims, String username) {
+    public String createToken(Map<String, Object> claims, String email) {
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(username)
+                .setSubject(email)
                 .setIssuedAt(Date.from(Instant.now()))
                 .setExpiration(Date.from(Instant.now().plus(Duration.ofHours(3))))
                 .signWith(SignatureAlgorithm.HS256, secret)

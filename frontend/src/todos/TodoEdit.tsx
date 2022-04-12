@@ -9,13 +9,14 @@ interface TodoFormProps {
 }
 
 export default function TodoEdit(props: TodoFormProps) {
-    const [task, setTask] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('Work');
-    const [createdBy, setCreatedBy] = useState('Me');
+    const [task, setTask] = useState(localStorage.getItem('title') ?? '')
+    const [description, setDescription] = useState(localStorage.getItem('description') ?? '')
+    const [category, setCategory] = useState(localStorage.getItem('category') ?? '')
+    const [createdBy, setCreatedBy] = useState(localStorage.getItem('createdBy') ?? '')
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
+        setTimeout(() => setErrorMessage(''), 10000)
         setTask(props.todoToChange.task)
         setDescription(props.todoToChange.description)
         setCategory(props.todoToChange.category)
@@ -30,11 +31,15 @@ export default function TodoEdit(props: TodoFormProps) {
             addTodo()
         }
     }
+
     const addTodo = () => {
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/todos` , {
+        const token = localStorage.getItem('token')
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+
             },
             body: JSON.stringify({
                 task: task,
@@ -60,10 +65,12 @@ export default function TodoEdit(props: TodoFormProps) {
             .catch(e => setErrorMessage(e.message));
     }
     const editTodo = () => {
+        const token = localStorage.getItem('token')
         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoToChange.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + token
             },
             body: JSON.stringify({
                 task: task,
@@ -90,8 +97,12 @@ export default function TodoEdit(props: TodoFormProps) {
     }
 
     const deleteTodo = () => {
+        const token = localStorage.getItem('token')
         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoToChange.id}`, {
             method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer' + token
+            }
         })
             .then(response => {
                 if (response.status === 200) {
@@ -106,8 +117,10 @@ export default function TodoEdit(props: TodoFormProps) {
     return (
         <div>
             {errorMessage}
-            <input type="text"  placeholder="write here your task" value={task} onChange={ev => setTask(ev.target.value)}/> <br/>
-            <textarea rows={3} placeholder="write here your description"  value={description} onChange={ev => setDescription(ev.target.value)}/> <br/>
+            <input type="text" placeholder="write here your task" value={task}
+                   onChange={ev => setTask(ev.target.value)}/> <br/>
+            <textarea rows={3} placeholder="write here your description" value={description}
+                      onChange={ev => setDescription(ev.target.value)}/> <br/>
             <select value={category} onChange={ev => setCategory(ev.target.value)}>
                 <option value={"Me"}>me</option>
                 <option value={"Work"}>work</option>
@@ -117,7 +130,8 @@ export default function TodoEdit(props: TodoFormProps) {
                 <option value={"Health"}>health</option>
                 <option value={"Others"}>others</option>
             </select> <br/>
-            <input type="text" placeholder= "write here by whom" value={createdBy} onChange={ev => setCreatedBy(ev.target.value)}/>
+            <input type="text" placeholder="write here by whom" value={createdBy}
+                   onChange={ev => setCreatedBy(ev.target.value)}/>
             <button onClick={() => AddOrEdit()}>Save</button>
             <button onClick={deleteTodo}>Delete</button>
         </div>

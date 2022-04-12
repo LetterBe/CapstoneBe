@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/login")
 @RequiredArgsConstructor
 public class UserController {
@@ -25,7 +26,7 @@ public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
-    private JwtService jwtService;
+    private final JwtService jwtService;
 
     @PostMapping("/register")
     public UserDocument createUser (@RequestBody UserDocument newUser) {
