@@ -15,7 +15,6 @@ export default function TodoEdit(props: TodoFormProps) {
     const [category, setCategory] = useState(localStorage.getItem('category') ?? '')
     const [createdBy, setCreatedBy] = useState(localStorage.getItem('createdBy') ?? '')
     const [errorMessage, setErrorMessage] = useState('')
-    const navigate = useNavigate()
 
     useEffect(() => {
         setTimeout(() => setErrorMessage(''), 10000)

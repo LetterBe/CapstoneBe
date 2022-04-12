@@ -1,6 +1,5 @@
 import React from 'react';
-import {Outlet, useNavigate} from "react-router-dom";
-import TodoPage from "./todos/TodoPage";
+import {Outlet} from "react-router-dom";
 
 
 function App() {
