@@ -35,6 +35,8 @@ export default function TodoPage() {
                                                                    onTodoChange={fetchAll}/>)}
             </ol>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
+            <h6>Here you create new Tasks, edit them and,<br/> you you are done ckeck it,before deleting, <br/>so you get your score higher</h6>
+            <span> {localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username') + ', nice to have you here!'} </span>
         </div>
     )
 }

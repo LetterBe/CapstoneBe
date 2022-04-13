@@ -15,7 +15,7 @@ function App() {
 
     const logout = () => {
         localStorage.removeItem('token')
-        localStorage.removeItem('emailLogin')
+        localStorage.removeItem('username')
     }
 
 
@@ -25,7 +25,6 @@ function App() {
                 <button onClick={routeToLoginAndRegiter}>Login</button>
                 <button onClick={() => {logout(); routeToLogin()}}>Logout</button></span>
             </h2>
-            <span> {localStorage.setItem('token','username') === null ? '' : 'Hi,  ' + localStorage.getItem('username') + ', nice to have you here!'} </span>
             <Outlet/>
         </div>
     );
