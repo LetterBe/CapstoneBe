@@ -18,7 +18,7 @@ function App() {
 
     return (
         <div>
-            <h2> <img src={NameOY} height={30} /> Easy task manager </h2>
+            <h2> <img src={NameOY} alt='logo' height={30} /> Easy task manager </h2>
             < button onClick={routeToLoginAndRegiter}>Login</button>
             < button onClick={routeToLogin}>Logout</button>
             <Outlet/>

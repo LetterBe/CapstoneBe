@@ -30,10 +30,6 @@ export default function TodoPage() {
         fetchAll()
     }, []);
 
-    const routeToLogin = () => {
-        navigate('/login')
-    }
-
     return (
         <div className='app'>
             <ul>
