@@ -1,6 +1,6 @@
 import React from 'react';
-import {Outlet, useNavigate} from "react-router-dom";
-import NameOY from './images/NameOY.png'
+import { Outlet, useNavigate} from "react-router-dom";
+import NameOY from './images/NameOY.png';
 
 
 function App() {
@@ -10,17 +10,21 @@ function App() {
         navigate('/login')
     }
 
-    const routeToLogin= () => {
+    const routeToLogin = () => {
         navigate('/login')
     }
 
+    const logout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('emailLogin')
+    }
 
 
     return (
         <div>
-            <h2> <img src={NameOY} alt='logo' height={30} /> Easy task manager </h2>
-            < button onClick={routeToLoginAndRegiter}>Login</button>
-            < button onClick={routeToLogin}>Logout</button>
+            <h2><img src={NameOY} alt='logo' height={30}/> Easy task manager </h2>
+            <button onClick={routeToLoginAndRegiter}>Login</button>
+            <button onClick={() => {logout(); routeToLogin()}}>Logout</button>
             <Outlet/>
         </div>
     );

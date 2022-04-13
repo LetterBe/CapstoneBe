@@ -3,14 +3,12 @@ import {TodoDTO} from "./TodoDTOModel";
 import TodoEdit from "./TodoEdit";
 import './TodoPage.css';
 import TodoItem from "./TodoItem";
-import {useNavigate} from "react-router-dom";
 import LogoOY from "../images/LogoOY.png";
 
 export default function TodoPage() {
 
     const [todos, setTodos] = useState([] as TodoDTO[])
     const [selectedTodo, setSelectedTodo] = useState({} as TodoDTO)
-    const navigate = useNavigate()
 
     const fetchAll = () => {
         const token = localStorage.getItem('token')

@@ -11,7 +11,7 @@ export default function Logout() {
 
     return(
         <div>
-
+            "See you next time!"
         </div>
     )
 }

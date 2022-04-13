@@ -13,22 +13,26 @@ export default function TodoItem(props: TodoItemProps) {
 
 
     const deleteTodo = () => {
-        const token = localStorage.getItem('token')
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoItem.id}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': 'Bearer' + token
-            }
-        })
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json()
+        if (props.todoItem.status) {
+
+            const token = localStorage.getItem('token')
+            fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoItem.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer' + token
                 }
-                throw new Error("Error to delete Task")
             })
-            .then(() => props.onTodoChange())
-            .catch(e => setErrorMessage(e.message))
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json()
+                    }
+                    throw new Error("Error to delete Task")
+                })
+                .then(() => props.onTodoChange())
+                .catch(e => setErrorMessage(e.message))
+        }
     }
+
 
     const toggleItem = () => {
         const changedTodoItem = props.todoItem;
