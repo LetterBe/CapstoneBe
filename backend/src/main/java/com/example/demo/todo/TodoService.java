@@ -17,7 +17,7 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public List<Todo> getTodosbyUserEmail(String email) {
+    public List<Todo>getTodosbyUserEmail(String email) {
         return todoRepository.findAllByUserEmail(email);
     }
 

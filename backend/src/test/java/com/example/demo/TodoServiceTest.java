@@ -9,22 +9,18 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
-/*public class TodoServiceTest {
+public class TodoServiceTest {
 
     @Test
-    @DisplayName("test to create a Todo method")
+    @DisplayName("test to create a Todo")
     void shouldCreateTodo() {
-        Todo todo = new Todo (null, "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
-        Todo savedTodo = new Todo ("111", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo todo = new Todo (null,"b@web.de", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo savedTodo = new Todo ("111", "b@web.de", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
 
         TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
         when(todoRepository.save(todo)).thenReturn(savedTodo);
@@ -36,23 +32,23 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    @DisplayName("test to get all Todos")
+    @DisplayName("test to get all Todos by UserEmail ")
     void shouldGetAllTodos () {
-        Todo todo1 = new Todo ("111", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
-        Todo todo2 = new Todo ("222", "write", "for java test", TodoCategory.Home, TodoStatus.Open, "Ana");
-        Todo todo3 = new Todo ("333", "debug", "for java test", TodoCategory.Work, TodoStatus.Open, "André");
+        Todo todo1 = new Todo ("111", "b@web.de","learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo todo2 = new Todo ("222", "b@web.de", "write", "for java test", TodoCategory.Home, TodoStatus.Open, "Ana");
+        Todo todo3 = new Todo ("333","b@web.de", "debug", "for java test", TodoCategory.Work, TodoStatus.Open, "André");
 
         TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
-        when(todoRepository.findAll()).thenReturn(List.of(todo1, todo2, todo3));
+        when(todoRepository.findAllByUserEmail("b@web.de")).thenReturn(List.of(todo1, todo2, todo3));
 
         TodoService todoService = new TodoService(todoRepository);
-        Collection<Todo> actual = todoService.getTodosbyUserId("111");
+        List<Todo> actual = todoService.getTodosbyUserEmail("b@web.de");
 
         Assertions.assertThat(actual).isEqualTo(List.of(todo1, todo2, todo3));
     }
 
     @Test
-    @DisplayName("test to get one Todo")
+    @DisplayName("test to get one Todo by its Id")
     void shouldGetOneTodobyId () {
         Todo todo1 = new Todo();
         todo1.setId("333");
@@ -74,35 +70,38 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    @DisplayName("test to update/change a Todo")
+    @DisplayName("test to update/change a Todo by TodoId and UserEmail")
     void shouldUpdateTodo () {
-        Todo todoInDB = new Todo ("111", "learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
-        Todo todoToUpdate = new Todo ("111", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
-        Todo updatedTodo = new Todo ("111","write protocol" , "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo todoInDB = new Todo ("111", "b@web.de","learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo todoToUpdate = new Todo ("111","b@web.de", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+        Todo updatedTodo = new Todo ("111", "b@web.de","write protocol" , "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
 
         TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
-        when(todoRepository.findById("111")).thenReturn(Optional.of(todoInDB));
+        when(todoRepository.findByIdAndUserEmail("111", "b@web.de")).thenReturn(Optional.of(todoInDB));
         when(todoRepository.save(todoToUpdate)).thenReturn(updatedTodo);
 
         TodoService todoService = new TodoService(todoRepository);
 
-        Assertions.assertThat(todoService.updateTodo("111",new Todo( "111", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara"))).containsSame(updatedTodo);
+        Assertions.assertThat(todoService.updateTodo("111", "b@web.de",new Todo( "111", "b@web.de", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara"))).containsSame(updatedTodo);
     }
 
     @Test
-    @DisplayName("test to delete one Todo by its id")
+    @DisplayName("test to delete one Todo by its id and UserEmail")
     void shouldDeleteTodoById() {
 
+        Todo todoToDelete = new Todo("333", "b@web.de","learn", "for java test", TodoCategory.Me, TodoStatus.Open, "Bárbara");
+
         TodoRepository todoRepository = Mockito.mock(TodoRepository.class);
+        Mockito.when(todoRepository.findByIdAndUserEmail("333", "b@web.de")).thenReturn(Optional.of(todoToDelete));
 
         TodoService todoService = new TodoService(todoRepository);
-
-        todoService.deleteById("333");
+        Optional<Todo> actual = todoService.deleteById("333", "b@web.de");
 
         Mockito.verify(todoRepository).deleteById("333");
+        Assertions.assertThat(actual).isEqualTo(Optional.of(todoToDelete));
 
 
 
     }
-}*/
+}
 
