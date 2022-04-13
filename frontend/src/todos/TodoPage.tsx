@@ -3,7 +3,6 @@ import {TodoDTO} from "./TodoDTOModel";
 import TodoEdit from "./TodoEdit";
 import './TodoPage.css';
 import TodoItem from "./TodoItem";
-import LogoOY from "../images/LogoOY.png";
 
 export default function TodoPage() {
 
@@ -30,15 +29,12 @@ export default function TodoPage() {
 
     return (
         <div className='app'>
-            <ul>
+            <ol>
                 {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}
                                                                    onTodoSelected={setSelectedTodo}
-                                                                   onTodoChange={fetchAll} />)}
-            </ul>
+                                                                   onTodoChange={fetchAll}/>)}
+            </ol>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
-            <span>
-                <img  src={LogoOY} alt="logo start" height={50} />
-            </span>
         </div>
     )
 }
