@@ -23,11 +23,10 @@ const Login = () => {
             })
         })
             .then(response => {
-                if (!response.ok) {
-                    setErrorMessage("Email or password not valid")
-                    throw new Error()
+                if (response.status === 200) {
+                    return response.text()
                 }
-                return response.text()
+                throw new Error("Did not work")
             })
             .then(responseBody => {
                 localStorage.setItem("token", responseBody)
@@ -36,6 +35,7 @@ const Login = () => {
                 setPassword("")
                 navigate("/tasks")
             })
+            .catch(e => setErrorMessage(e.message))
     }
 
     const routeToRegister = () => {

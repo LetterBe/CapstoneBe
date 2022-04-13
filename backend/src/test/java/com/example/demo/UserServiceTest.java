@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.login.LoginData;
+
 import com.example.demo.user.UserDocument;
 import com.example.demo.user.UserRepository;
 import com.example.demo.user.UserService;
@@ -17,8 +17,8 @@ public class UserServiceTest {
 
     @Test
     void shouldCreateUser () {
-        UserDocument userToBeCreated = new UserDocument(null,"Ivna","ivna@web.de", "1234");
-        UserDocument savedUser = new UserDocument("444","Ivna","ivna@web.de", "1234");
+        UserDocument userToBeCreated = new UserDocument(null,"ivna@web.de", "1234");
+        UserDocument savedUser = new UserDocument("444","ivna@web.de", "1234");
 
         UserRepository userRepository = Mockito.mock(UserRepository.class);
         Mockito.when(userRepository.save(userToBeCreated)).thenReturn(savedUser);
@@ -31,7 +31,7 @@ public class UserServiceTest {
 
     @Test
     void shouldFindByEmail () {
-        UserDocument userToBeFound = new UserDocument("444", "Ivna","ivna@web.de", "1234");
+        UserDocument userToBeFound = new UserDocument("444","ivna@web.de", "1234");
 
         UserRepository userRepository = Mockito.mock(UserRepository.class);
         Mockito.when(userRepository.findByEmail("ivna@web.de")).thenReturn(Optional.of(userToBeFound));
