@@ -1,9 +1,8 @@
 export interface TodoDTO {
-    id? : string;
+    id?: string;
     task: string;
     description: string;
     category: string;
     status: boolean;
-    createdBy: string;
 }
 

@@ -16,11 +16,10 @@ public class UserService {
     public UserDocument createUser(UserDocument user) {
         if (findByEmail(user.getEmail()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists");
-        } else{
+        } else {
             return userRepository.save(user);
         }
     }
-
 
 
     public Optional<UserDocument> findByEmail(String email) {

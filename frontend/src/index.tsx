@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -12,6 +12,7 @@ import TodoPage from "./todos/TodoPage";
 
 ReactDOM.render(
     <React.StrictMode>
+        <Suspense fallback="Loading...">
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<App/>}>
@@ -22,6 +23,7 @@ ReactDOM.render(
                     </Route>
                 </Routes>
             </BrowserRouter>
+        </Suspense>
     </React.StrictMode>,
     document.getElementById('root')
 );

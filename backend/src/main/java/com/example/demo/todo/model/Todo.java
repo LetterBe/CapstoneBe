@@ -19,7 +19,7 @@ public class Todo {
     private String description;
     private TodoCategory category;
     private TodoStatus status;
-    private String createdBy;
+
 
     public Todo() {
 
@@ -31,7 +31,6 @@ public class Todo {
         description = updatedTodo.getDescription();
         category = updatedTodo.getCategory();
         status = updatedTodo.getStatus();
-        createdBy = updatedTodo.getCreatedBy();
         return this;
     }
 }
