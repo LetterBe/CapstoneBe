@@ -19,16 +19,16 @@ public class TodoDTO {
     private String description;
     private TodoCategory category;
     private boolean status;
-    private String createdBy;
+
 
 
     public static TodoDTO of(Todo todo) {
-        return new TodoDTO(todo.getId(), todo.getUserEmail(), todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus() == TodoStatus.Done, todo.getCreatedBy());
+        return new TodoDTO(todo.getId(), todo.getUserEmail(), todo.getTask(), todo.getDescription(), todo.getCategory(), todo.getStatus() == TodoStatus.Done);
 
     }
 
     public Todo toTodo() {
-        return new Todo(id, userEmail, task, description, category, status ? TodoStatus.Done : TodoStatus.Open, createdBy);
+        return new Todo(id, userEmail, task, description, category, status ? TodoStatus.Done : TodoStatus.Open);
     }
 
 }

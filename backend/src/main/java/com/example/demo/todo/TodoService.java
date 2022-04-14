@@ -17,22 +17,26 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public List<Todo>getTodosbyUserEmail(String email) {
+    public List<Todo> getTodosbyUserEmail(String email) {
         return todoRepository.findAllByUserEmail(email);
     }
 
     public Optional<Todo> findById(String id) {
-            return todoRepository.findById(id);
-        }
-    public Optional<Todo> updateTodo (String id, String email, Todo updatedTodo) {
-        return todoRepository.findByIdAndUserEmail(id, email)
-                .map(todo -> todo.update(updatedTodo))
-                .map(todoRepository::save);
+        return todoRepository.findById(id);
     }
 
-    public Optional<Todo> deleteById (String id, String email){
+    public Optional<Todo> updateTodo(String id, String email, Todo updatedTodo) {
+                Optional<Todo> todoFromDB = todoRepository.findByIdAndUserEmail(id, email);
+                // abfrafe zum verglichen kommt hier
+                        return
+                todoFromDB.map(todo -> todo.update(updatedTodo))
+                .map(todoRepository::save);
+
+    }
+
+    public Optional<Todo> deleteById(String id, String email) {
         Optional<Todo> todoToDelete = todoRepository.findByIdAndUserEmail(id, email);
-        if(todoToDelete.isPresent()) {
+        if (todoToDelete.isPresent()) {
             todoRepository.deleteById(id);
         }
         return todoToDelete;

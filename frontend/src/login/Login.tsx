@@ -51,7 +51,7 @@ const Login = () => {
             <br/>
             <input type='password' placeholder='password' value={password}
                    onChange={ev => setPassword(ev.target.value)}/> <br/>
-            <button type='submit'>Login</button> <span>{errorMessage}</span>
+            <button type='submit'>Go to tasks</button> <span>{errorMessage}</span>
             </form>
             <br/>
             <br/>

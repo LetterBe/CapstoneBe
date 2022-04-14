@@ -54,7 +54,8 @@ public class TodoController {
                     .stream()
                     .map(todo -> TodoDTO.of(todo))
                     .toList();
-            ResponseEntity.accepted().body(todos);
+         return ResponseEntity.ok(todos);
+
        }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
    }
