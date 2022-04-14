@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {TodoDTO} from "./TodoDTOModel";
 import TodoEdit from "./TodoEdit";
-import './TodoPage.css';
+import '../css/TodoPage.css';
 import TodoItem from "./TodoItem";
+
 
 export default function TodoPage() {
 
@@ -27,16 +28,21 @@ export default function TodoPage() {
         fetchAll()
     }, []);
 
-    return (
+    return(
+        <>
         <div className='app'>
-            <ol>
-                {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}
-                                                                   onTodoSelected={setSelectedTodo}
-                                                                   onTodoChange={fetchAll}/>)}
-            </ol>
             <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
-            <h6>Here you create new Tasks, edit them and,<br/> you you are done ckeck it,before deleting, <br/>so you get your score higher</h6>
+            <h6>Here you create new Tasks, edit them and,<br/> you you are done ckeck it,before deleting, <br/>so you
+                get your score higher</h6>
             <span> {localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username') + ', nice to have you here!'} </span>
         </div>
+            <div>
+                <ol className='postIts2'>
+                    {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}
+                                                                       onTodoSelected={setSelectedTodo}
+                                                                       onTodoChange={fetchAll}/>)}
+                </ol>
+            </div>
+        </>
     )
 }

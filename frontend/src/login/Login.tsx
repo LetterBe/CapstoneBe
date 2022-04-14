@@ -1,6 +1,8 @@
 import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
-
+import Button from "../css/Button";
+import ErrorMessage from "../css/ErrorMessage";
+import Input from "../css/Input"
 
 const Login = () => {
 
@@ -39,27 +41,27 @@ const Login = () => {
     }
 
     const routeToRegister = () => {
-        navigate('/register')
+        navigate ('/register')
     }
 
     return (
         <div>
-            <h4>Login</h4>
             <form onSubmit={login}>
-            <input type='text' placeholder='Email' value={emailLogin}
-                   onChange={ev => setEmailLogin(ev.target.value)}/>
+            <Input placeholder='Email' value={emailLogin} onChange={setEmailLogin}
+                   type='email' additionalCss="mr-4"/>
             <br/>
-            <input type='password' placeholder='password' value={password}
-                   onChange={ev => setPassword(ev.target.value)}/> <br/>
-            <button type='submit'>Go to tasks</button> <span>{errorMessage}</span>
+            <Input placeholder='Password' value={password}
+                   onChange={setPassword}  type='password' additionalCss="mr-4"/> <br/>
+            <Button label='Login' onClick={() => login}  />
+                {errorMessage && <span><ErrorMessage message={errorMessage}/> </span>}
             </form>
             <br/>
             <br/>
             <h5>Still don't have an account? <br/>
-                Then register yourself first <button onClick={routeToRegister}>Register</button></h5>
-
+                Then register yourself first <Button label='Register' onClick={() => routeToRegister()}  /></h5>
         </div>
     )
 }
+
 
 export default Login

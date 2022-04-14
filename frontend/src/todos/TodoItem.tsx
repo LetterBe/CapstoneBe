@@ -1,5 +1,6 @@
 import {TodoDTO} from "./TodoDTOModel";
 import {useState} from "react";
+import Button from "../css/Button";
 
 interface TodoItemProps {
     todoItem: TodoDTO
@@ -66,17 +67,19 @@ export default function TodoItem(props: TodoItemProps) {
 
 
     return (
-        <li key={`${props.todoItem.id}`}>
-            <h5><span onClick={() => props.onTodoSelected(props.todoItem)}>
+        <div>
+            <li key={`${props.todoItem.id}`}>
+                <h5><span onClick={() => props.onTodoSelected(props.todoItem)}>
                 Task: {props.todoItem.task}
                 </span>
-                <input type='checkbox' checked={props.todoItem.status} onChange={() => toggleItem()}/>
-            </h5>
-            <h5>description: {props.todoItem.description}</h5>
-            <h5>category: {props.todoItem.category}</h5>
-            <button onClick={() => deleteTodo()}>Delete</button>
-            <div>{errorMessage}</div>
-        </li>
+                    <input type='checkbox' checked={props.todoItem.status} onChange={() => toggleItem()}/>
+                </h5>
+                <h5>description: {props.todoItem.description}</h5>
+                <h5>category: {props.todoItem.category}</h5>
+                <Button label='Delete🗑️' onClick={() => deleteTodo()}/>
+                <div>{errorMessage}</div>
+            </li>
+        </div>
 
     )
 

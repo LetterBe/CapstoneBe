@@ -1,5 +1,7 @@
 import {FormEvent, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import Input from "../css/Input";
+import Button from "../css/Button";
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -46,13 +48,13 @@ const Register = () => {
         <div>
             <h4>You are new by OY? Then register yourself:</h4>
             <form onSubmit={register}>
-            <input type='tex' placeholder='Email' value={email}
-                   onChange={ev => setEmail(ev.target.value)}/> <br/>
-            <input type='password' placeholder='Password' value={password}
-                   onChange={ev => setPassword(ev.target.value)}/><br/>
-            <input type='password' placeholder='Your password again' value={passwordAgain}
-                   onChange={ev => setPasswordAgain(ev.target.value)} /> <br/>
-            <button type='submit'>Register</button>
+            <Input  placeholder='Email' value={email}
+                   onChange={setEmail}  type='email' additionalCss="mr-4" />  <br/>
+            <Input type='password' placeholder='Password' value={password}
+                   onChange={setPassword}/><br/>
+            <Input placeholder='Your password again' value={passwordAgain}
+                   onChange={setPasswordAgain} /> <br/>
+            <Button label='Register' onClick= {() => register} />
             </form>
         </div>
     )

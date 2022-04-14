@@ -7,6 +7,7 @@ import Register from "./register/Register";
 import Login from "./login/Login";
 import Logout from "./login/Logout";
 import TodoPage from "./todos/TodoPage";
+import  './css/index.css';
 
 
 

@@ -1,5 +1,6 @@
 import {TodoDTO} from "./TodoDTOModel";
 import {useEffect, useState} from "react";
+import Button from "../css/Button";
 
 
 interface TodoFormProps {
@@ -91,30 +92,12 @@ export default function TodoEdit(props: TodoFormProps) {
             .catch(e => setErrorMessage(e.message))
     }
 
-    /* const deleteTodo = () => {
-         const token = localStorage.getItem('token')
-         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos/${props.todoToChange.id}`, {
-             method: 'DELETE',
-             headers: {
-                 'Authorization': 'Bearer' + token
-             }
-         })
-             .then(response => {
-                 if (response.status === 200) {
-                     return response.json()
-                 }
-                 throw new Error("Error to delete Task")
-             })
-             .then(() => props.onTodoChange())
-             .catch(e => setErrorMessage(e.message))
-     }*/
-
     return (
         <div>
             {errorMessage}
             <input type="text" placeholder="write here your task" value={task}
                    onChange={ev => setTask(ev.target.value)}/>
-            <button onClick={() => AddOrEdit()}>Save your task!</button>
+            <Button label='Save your task' onClick={() => AddOrEdit()} />
             <br/>
             <textarea rows={3} placeholder="write here your description" value={description}
                       onChange={ev => setDescription(ev.target.value)}/> <br/>
