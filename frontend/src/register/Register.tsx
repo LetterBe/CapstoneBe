@@ -52,7 +52,7 @@ const Register = () => {
                    onChange={setEmail}  type='email' additionalCss="mr-4" />  <br/>
             <Input type='password' placeholder='Password' value={password}
                    onChange={setPassword}/><br/>
-            <Input placeholder='Your password again' value={passwordAgain}
+            <Input type='password' placeholder='Your password again' value={passwordAgain}
                    onChange={setPasswordAgain} /> <br/>
             <Button label='Register' onClick= {() => register} />
             </form>

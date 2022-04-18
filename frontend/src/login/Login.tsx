@@ -52,7 +52,7 @@ const Login = () => {
             <br/>
             <Input placeholder='Password' value={password}
                    onChange={setPassword}  type='password' additionalCss="mr-4"/> <br/>
-            <Button label='Login' onClick={() => login}  />
+            <Button label='See your tasks' onClick={() => login}  />
                 {errorMessage && <span><ErrorMessage message={errorMessage}/> </span>}
             </form>
             <br/>

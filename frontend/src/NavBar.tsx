@@ -5,9 +5,6 @@ import React from "react";
 export default function NavBar() {
     const navigate = useNavigate()
 
-    const routeToLoginAndRegiter = () => {
-        navigate('/login')
-    }
 
     const routeToLogin = () => {
         navigate('/login')
@@ -20,7 +17,7 @@ export default function NavBar() {
 
     return (
         <div className='loginUndLogoutContainer'>
-            <Button label='Login' onClick={routeToLoginAndRegiter}/>
+            <Button label='Login' onClick={routeToLogin}/>
             <Button label='Logout ' onClick={() => {
                 logout();
                 routeToLogin()
