@@ -1,0 +1,6 @@
+.app {
+    background-color: azure;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
