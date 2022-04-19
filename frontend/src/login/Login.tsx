@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import Button from "../css/Button";
 import ErrorMessage from "../css/ErrorMessage";
 import Input from "../css/Input"
+import Text from "../css/Text";
 
 const Login = () => {
 
@@ -12,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate()
 
 
-    const login = (event : FormEvent<HTMLFormElement>) => {
+    const login = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         fetch(`${process.env.REACT_APP_BASE_URL}/api/login`, {
             method: 'POST',
@@ -41,24 +42,34 @@ const Login = () => {
     }
 
     const routeToRegister = () => {
-        navigate ('/register')
+        navigate('/register')
     }
 
     return (
         <div>
-            <form onSubmit={login}>
-            <Input placeholder='Email' value={emailLogin} onChange={setEmailLogin}
-                   type='email' additionalCss="mr-4"/>
+            <div className='loginPage1'>
+                <form onSubmit={login}>
+                    <Text message='Your Email:'/>
+                    <Input placeholder='Email' value={emailLogin} onChange={setEmailLogin}
+                           type='email' additionalCss="mr-4"/>
+                    <br/>
+                    <Text message='Password:'/>
+                    <Input placeholder='Password' value={password}
+                           onChange={setPassword} type='password' additionalCss="mr-4"/> <br/>
+                    <div className='loginPageButtons'>
+                        <Button label='See your tasks' onClick={() => login}/>
+                        {errorMessage && <span><ErrorMessage message={errorMessage}/> </span>}
+                    </div>
+                </form>
+            </div>
             <br/>
-            <Input placeholder='Password' value={password}
-                   onChange={setPassword}  type='password' additionalCss="mr-4"/> <br/>
-            <Button label='See your tasks' onClick={() => login}  />
-                {errorMessage && <span><ErrorMessage message={errorMessage}/> </span>}
-            </form>
-            <br/>
-            <br/>
-            <h5>Still don't have an account? <br/>
-                Then register yourself first <Button label='Register' onClick={() => routeToRegister()}  /></h5>
+            <div className='loginPage2'>
+                <Text message="Still don't have an account?"/>
+                <Text message="Then register yourself first:"/>
+                <div className='loginPageButtons'>
+                    <Button label='Register' onClick={() => routeToRegister()}/>
+                </div>
+            </div>
         </div>
     )
 }

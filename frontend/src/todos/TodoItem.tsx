@@ -67,18 +67,18 @@ export default function TodoItem(props: TodoItemProps) {
 
 
     return (
-        <div>
-            <li key={`${props.todoItem.id}`}>
+        <div key={`${props.todoItem.id}`} className='postIt'>
+            <div>
                 <h5><span onClick={() => props.onTodoSelected(props.todoItem)}>
-                Task: {props.todoItem.task}
+                 {props.todoItem.task}
                 </span>
                     <input type='checkbox' checked={props.todoItem.status} onChange={() => toggleItem()}/>
                 </h5>
-                <h5>description: {props.todoItem.description}</h5>
-                <h5>category: {props.todoItem.category}</h5>
-                <Button label='Delete🗑️' onClick={() => deleteTodo()}/>
-                <div>{errorMessage}</div>
-            </li>
+                <h5> {props.todoItem.description}</h5>
+                <h5> {props.todoItem.category}</h5>
+            </div>
+            <Button label='Delete🗑️' onClick={() => deleteTodo()}/>
+            <div>{errorMessage}</div>
         </div>
 
     )
