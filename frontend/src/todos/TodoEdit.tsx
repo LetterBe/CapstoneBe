@@ -74,6 +74,7 @@ export default function TodoEdit(props: TodoFormProps) {
                 task: task,
                 description: description,
                 category: category,
+
             })
         })
             .then(response => {
