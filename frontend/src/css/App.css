@@ -12,8 +12,9 @@ body {
 .loginUndLogoutContainer {
     display: flex;
     position: absolute;
-    left: 65rem;
-    bottom: 37rem;
+    left: 70rem;
+    font-size: 30px;
+    bottom: 38rem;
 }
 
 .logoContainer {
@@ -27,29 +28,62 @@ body {
 
 .logoText {
     display: flex;
-    position: absolute;
+    position: center;
     left: 5rem;
     top: 15px;
-    font-family: Give You Glory;
-    font-size: 25px;
+    font-family: "Reenie Beanie";
+    font-size: 45px;
     color: #0e7490;
 }
 
 .postIts2 {
     display: flex;
     flex-direction: row;
-    border: 2px solid;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 50px;
     width: 100%;
     padding: 20px;
-    font-family: "Give You Glory";
+    font-family:'Reenie Beanie';
+    font-size: 3rem;
 
 }
 
-.postItToCreateToEdit {
-
-}
 
 .buttonFont {
-    font-family: "Give You Glory";
+    font-family: "Reenie Beanie";
+}
+
+.textFont {
+    font-family: "Reenie Beanie"
+}
+
+.loginPage1 {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 280px;
+    position: center;
+    margin-top: 80px ;
+    margin-left: 440px;
+    background-color: antiquewhite;
+}
+
+.loginPage2 {
+    display: flex;
+    flex-direction: column;
+    position: center;
+    margin-top: 20px ;
+    margin-left: 440px;
+    background-color: antiquewhite;
+    width: 280px;
+}
+
+.loginPageButtons {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+   margin-right: 600px;
+
+
 }

@@ -2,6 +2,7 @@ import {FormEvent, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Input from "../css/Input";
 import Button from "../css/Button";
+import Text from "../css/Text";
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -46,7 +47,7 @@ const Register = () => {
 
     return (
         <div>
-            <h4>You are new by OY? Then register yourself:</h4>
+            <Text message='You are new by OY? Then register yourself'/>
             <form onSubmit={register}>
             <Input  placeholder='Email' value={email}
                    onChange={setEmail}  type='email' additionalCss="mr-4" />  <br/>
