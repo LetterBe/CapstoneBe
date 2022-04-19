@@ -66,7 +66,8 @@ body {
     position: center;
     margin-top: 80px ;
     margin-left: 440px;
-    background-color: antiquewhite;
+    background-color: #c0ffff;
+    box-shadow: 2px 10px 5px 4px  rgba(33, 33, 33, .4);
 }
 
 .loginPage2 {
@@ -75,8 +76,10 @@ body {
     position: center;
     margin-top: 20px ;
     margin-left: 440px;
-    background-color: antiquewhite;
     width: 280px;
+    background-color: #c0ffff;
+    border-bottom-right-radius: 60px 5px;
+    box-shadow: 2px 10px 5px 4px rgba(33, 33, 33, .4);
 }
 
 .loginPageButtons {
