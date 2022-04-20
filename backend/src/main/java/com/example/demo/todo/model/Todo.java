@@ -4,6 +4,8 @@ import com.example.demo.todo.TodoCategory;
 import com.example.demo.todo.TodoStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -25,6 +27,7 @@ public class Todo {
     public Todo() {
 
     }
+
 
 
     public Todo update(Todo updatedTodo) {
