@@ -13,15 +13,15 @@ export default function TodoPage() {
     const [score, setScore] = useState(0)
 
     const scoreAdd = useCallback(() => {
-        setScore(0)
-        todos.forEach((todo: TodoDTO) => (setScore(score + todo.score)))
-    },[todos, score] )
+        const scoreResult = todos.map((todo: TodoDTO) => todo.score).reduce((a, b) => (a + b), 0)
+        setScore(scoreResult)
+    }, [todos])
 
-    useEffect ( () => {
+    useEffect(() => {
         scoreAdd()
-    }, [],)
+    }, [scoreAdd],)
 
-    const fetchAll = useCallback (() => {
+    const fetchAll = useCallback(() => {
         const token = localStorage.getItem('token')
         fetch(`${process.env.REACT_APP_BASE_URL}/api/todos`, {
             headers: {
@@ -50,8 +50,8 @@ export default function TodoPage() {
                 get your score higher'/>
                 <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
             </div>
-            <div className= 'score'>
-                <Text message={`Score: ${score}`} />
+            <div className='score'>
+                <Text message={`Score: ${score}`}/>
             </div>
             <div className='postItContainer'>
                 {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}
