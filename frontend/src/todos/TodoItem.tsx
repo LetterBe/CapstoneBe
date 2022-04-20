@@ -76,7 +76,6 @@ export default function TodoItem(props: TodoItemProps) {
                 </h5>
                 <h5> {props.todoItem.description}</h5>
                 <h5> {props.todoItem.category}</h5>
-                <h5> {props.todoItem.score}</h5>
             </div>
             <Button label='Delete🗑️' onClick={() => deleteTodo()}/>
             <div>{errorMessage}</div>
