@@ -72,5 +72,14 @@
 .postItContainer {
     display: flex;
     flex-wrap: wrap;
+}
 
+.score {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    width: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 60px 5px;
+    background: #c0ffff;
 }
