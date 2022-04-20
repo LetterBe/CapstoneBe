@@ -27,10 +27,18 @@ public class TodoService {
 
     public Optional<Todo> updateTodo(String id, String email, Todo updatedTodo) {
                 Optional<Todo> todoFromDB = todoRepository.findByIdAndUserEmail(id, email);
-                // abfrafe zum verglichen kommt hier
-                        return
-                todoFromDB.map(todo -> todo.update(updatedTodo))
-                .map(todoRepository::save);
+                if(todoFromDB.isPresent()){
+                    int currentScore = 0;
+                    if(updatedTodo.getStatus() != todoFromDB.get().getStatus()) {
+                        if (updatedTodo.getStatus() == TodoStatus.Done) {
+                            currentScore++;
+                        }
+                    }
+                    updatedTodo.setScore(currentScore);
+                    todoFromDB.map(todo -> todo.update(updatedTodo))
+                            .map(todoRepository::save);
+                }
+                return Optional.of(updatedTodo) ;
 
     }
 

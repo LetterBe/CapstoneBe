@@ -4,5 +4,6 @@ export interface TodoDTO {
     description: string;
     category: string;
     status: boolean;
+    score: number;
 }
 

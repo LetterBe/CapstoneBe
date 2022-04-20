@@ -47,7 +47,7 @@ const Register = () => {
 
     return (
         <div>
-            <Text message='You are new by OY? Then register yourself'/>
+            <Text message='You are new to OY? Then register yourself'/>
             <form onSubmit={register}>
             <Input  placeholder='Email' value={email}
                    onChange={setEmail}  type='email' additionalCss="mr-4" />  <br/>
