@@ -34,7 +34,7 @@ export default function TodoPage() {
 
     useEffect(() => {
         fetchAll()
-    }, []);
+    }, [fetchAll]);
 
     return (
         <>
