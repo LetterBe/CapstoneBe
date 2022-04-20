@@ -12,10 +12,14 @@ export default function TodoPage() {
     const [selectedTodo, setSelectedTodo] = useState({} as TodoDTO)
     const [score, setScore] = useState(0)
 
-    const scoreAdd = useCallback( () => {
+    const scoreAdd = useCallback(() => {
         setScore(0)
         todos.forEach((todo: TodoDTO) => (setScore(score + todo.score)))
-    }, [score, todos])
+    },[todos, score] )
+
+    useEffect ( () => {
+        scoreAdd()
+    }, [],)
 
     const fetchAll = useCallback (() => {
         const token = localStorage.getItem('token')
@@ -27,10 +31,9 @@ export default function TodoPage() {
             .then(response => response.json())
             .then((responseBody: TodoDTO []) => {
                 setTodos(responseBody)
-                scoreAdd()
                 setSelectedTodo({} as TodoDTO)
             })
-    }, [scoreAdd])
+    }, [])
 
 
     useEffect(() => {
@@ -40,7 +43,7 @@ export default function TodoPage() {
     return (
         <>
             <div className='app2'>
-                <Text size='2xl'
+                <Text size='4xl'
                       message={`${localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username') + ', nice to have you here!'}`}/>
                 <Text message='Here you create new Tasks, edit them and
                  when you are done, check it before deleting, so you
