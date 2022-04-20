@@ -61,32 +61,78 @@ body {
 .loginPage1 {
     display: flex;
     flex-direction: column;
-    padding: 5px;
-    width: 280px;
-    position: center;
-    margin-top: 80px ;
-    margin-left: 440px;
-    background-color: #c0ffff;
-    box-shadow: 2px 10px 5px 4px  rgba(33, 33, 33, .4);
+    line-height: 1;
+    text-align:center;
+    width: 300px;
+    margin: 25px;
+    margin-top: 60px;
+    justify-content: space-between;
+    min-height:250px;
+    max-height:400px;
+    position:relative;
+    border:1px solid #E8E8E8;
+    border-top:18px solid #fdfd86;
+    font-family:'Reenie Beanie';
+    font-size:2em;
+    border-bottom-right-radius: 60px 5px;
+    background: #fdfd86;
+}
+
+.loginPage1 :after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -0px;
+    bottom: 20px;
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
 .loginPage2 {
     display: flex;
     flex-direction: column;
-    position: center;
-    margin-top: 20px ;
-    margin-left: 440px;
-    width: 280px;
-    background-color: #c0ffff;
+    line-height: 1;
+    text-align:center;
+    width: 300px;
+    margin: 25px;
+    margin-top: 60px;
+    justify-content: space-between;
+    min-height:250px;
+    max-height:400px;
+    position:relative;
+    border:1px solid #E8E8E8;
+    border-top:18px solid #fdfd86;
+    font-family:'Reenie Beanie';
+    font-size:2em;
     border-bottom-right-radius: 60px 5px;
-    box-shadow: 2px 10px 5px 4px rgba(33, 33, 33, .4);
+    background: #fdfd86;
+
 }
+
+.loginPage2 :after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -0px;
+    bottom: 20px;
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    transform: matrix(-1, -0.1, 0, 1, 0, 0);
+
+}
+
 
 .loginPageButtons {
     display: flex;
     flex-direction: column;
     padding: 20px;
-   margin-right: 600px;
 
 
 }
