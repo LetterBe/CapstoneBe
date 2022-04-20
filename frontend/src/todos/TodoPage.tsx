@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {TodoDTO} from "./TodoDTOModel";
 import TodoEdit from "./TodoEdit";
 import '../css/TodoPage.css';
@@ -34,7 +34,7 @@ export default function TodoPage() {
 
     useEffect(() => {
         fetchAll()
-    }, [fetchAll]);
+    }, []);
 
     return (
         <>
