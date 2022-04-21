@@ -53,6 +53,12 @@
     font-size:2em;
     border-bottom-right-radius: 60px 5px;
     background: #fdfd86;
+    transition: 0.9s;
+}
+
+.postIt:hover {
+    background: #fdfd86;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.5) ;
 }
 
 .postIt :after {

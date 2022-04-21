@@ -17,48 +17,48 @@ public class TodoController {
     private final TodoService todoService;
 
     @PostMapping
-    public ResponseEntity<TodoDTO> createTodo (@RequestBody TodoDTO todo, Principal principal) {
+    public ResponseEntity<TodoDTO> createTodo(@RequestBody TodoDTO todo, Principal principal) {
         todo.setUserEmail(principal.getName());
-        return  ResponseEntity
+        return ResponseEntity
                 .status(201)
                 .body(TodoDTO.of(todoService.createTodo(todo.toTodo())));
 
     }
 
     @GetMapping
-    public List<TodoDTO> getTodosbyUserEmail (Principal principal){
+    public List<TodoDTO> getTodosbyUserEmail(Principal principal) {
         return todoService.getTodosbyUserEmail(principal.getName())
                 .stream()
                 .map(todo -> TodoDTO.of(todo))
                 .toList();
     }
 
-   @GetMapping("{id}")
+    @GetMapping("{id}")
     public ResponseEntity<TodoDTO> getTodo(@PathVariable String id) {
-       return ResponseEntity.of(todoService.findById(id)
-               .map(todo -> TodoDTO.of(todo)));
+        return ResponseEntity.of(todoService.findById(id)
+                .map(todo -> TodoDTO.of(todo)));
 
-   }
+    }
 
-   @PutMapping ("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<TodoDTO> updateTodo(@PathVariable String id, @RequestBody TodoDTO todo, Principal principal) {
         return ResponseEntity.of(todoService.updateTodo(id, principal.getName(), todo.toTodo())
-                        .map(updatedTodo -> TodoDTO.of(updatedTodo)));
+                .map(updatedTodo -> TodoDTO.of(updatedTodo)));
 
-        }
+    }
 
-   @DeleteMapping("/{id}")
-    public ResponseEntity<List<TodoDTO>>deleteTodoById(@PathVariable String id, Principal principal) {
-        if (todoService.deleteById(id, principal.getName()).isPresent()){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<List<TodoDTO>> deleteTodoById(@PathVariable String id, Principal principal) {
+        if (todoService.deleteById(id, principal.getName()).isPresent()) {
             List<TodoDTO> todos = todoService.getTodosbyUserEmail(principal.getName())
                     .stream()
                     .map(todo -> TodoDTO.of(todo))
                     .toList();
-         return ResponseEntity.ok(todos);
+            return ResponseEntity.ok(todos);
 
-       }
+        }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-   }
+    }
 
 
 }
