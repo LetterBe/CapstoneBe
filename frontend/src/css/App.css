@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
-    background-color: lightcyan;
+    background-color: aliceblue;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment:scroll;
@@ -11,29 +11,28 @@ body {
 
 .loginUndLogoutContainer {
     display: flex;
-    position: absolute;
-    left: 70rem;
-    font-size: 30px;
-    bottom: 38rem;
+   flex-direction: row-reverse;
 }
 
 .logoContainer {
     display: flex;
 }
+
 .logo {
     display: flex;
     height: 70px;
-    border-radius: 30px;
+    box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.20);
 }
 
 .logoText {
     display: flex;
-    position: center;
-    left: 5rem;
-    top: 15px;
+    flex-direction: column;
+    width: 100% ;
     font-family: "Reenie Beanie";
     font-size: 45px;
     color: #0e7490;
+    background-color: #e2fafc;
+    box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.20);
 }
 
 .postIts2 {
@@ -49,7 +48,6 @@ body {
 
 }
 
-
 .buttonFont {
     font-family: "Reenie Beanie";
 }
@@ -64,7 +62,7 @@ body {
     line-height: 1;
     text-align:center;
     width: 300px;
-    margin: 25px;
+    margin-left: 300px;
     margin-top: 60px;
     justify-content: space-between;
     min-height:250px;
@@ -98,8 +96,8 @@ body {
     line-height: 1;
     text-align:center;
     width: 300px;
-    margin: 25px;
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-left: 300px;
     justify-content: space-between;
     min-height:250px;
     max-height:400px;
@@ -135,3 +133,7 @@ body {
     padding: 20px;
 
 }
+
+
+
+

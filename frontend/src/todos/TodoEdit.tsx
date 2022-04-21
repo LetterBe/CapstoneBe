@@ -96,11 +96,11 @@ export default function TodoEdit(props: TodoFormProps) {
     return (
         <div>
             {errorMessage}
-            <input type="text" placeholder="write here your task" value={task}
+            <input type="text" placeholder="write here the task" value={task}
                    onChange={ev => setTask(ev.target.value)}/>
             <Button label='Save your task' onClick={() => AddOrEdit()} />
             <br/>
-            <textarea rows={3} placeholder="write here your description" value={description}
+            <textarea rows={3} placeholder="write here the description" value={description}
                       onChange={ev => setDescription(ev.target.value)}/> <br/>
             <select value={category} onChange={ev => setCategory(ev.target.value)}>
                 <option value={"Me"}>me</option>
@@ -111,7 +111,6 @@ export default function TodoEdit(props: TodoFormProps) {
                 <option value={"Health"}>health</option>
                 <option value={"Others"}>others</option>
             </select>
-
         </div>
 
     )
