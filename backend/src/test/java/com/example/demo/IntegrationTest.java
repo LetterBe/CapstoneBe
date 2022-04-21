@@ -80,6 +80,17 @@ public class IntegrationTest {
         Assertions.assertThat(setTodoDone.getBody().toTodo().getStatus()).isEqualTo(TodoStatus.Done);
 
 
+        ResponseEntity<TodoDTO[]> deleteTodoById = restTemplate.exchange(
+                "/api/todos/" + doneTodo.getId(),
+                HttpMethod.DELETE,
+                new HttpEntity<>(baererHeader),
+                TodoDTO[].class
+        );
+
+        Assertions.assertThat(deleteTodoById.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Assertions.assertThat(deleteTodoById.getBody().length).isEqualTo(0);
+
+
     }
 
 
