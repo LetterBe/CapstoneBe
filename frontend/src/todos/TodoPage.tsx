@@ -49,7 +49,7 @@ export default function TodoPage() {
                       message={`${localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username')}  ,`}/>
                 <Text message='here you can create new Tasks, edit them and,
                  when you are done, check it before deleting, so you
-                get your score higher !'/>
+                get your score higher! Ah... to edit a task just click on it!'/>
                 </div>
             <div className='bigPostIt'>
                     <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
