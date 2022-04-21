@@ -83,7 +83,7 @@ public class TodoServiceTest {
 
         TodoService todoService = new TodoService(todoRepository);
 
-        Assertions.assertThat(todoService.updateTodo("111", "b@web.de", new Todo("111", "b@web.de", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, 0))).containsSame(updatedTodo);
+        Assertions.assertThat(todoService.updateTodo("111", "b@web.de", new Todo("111", "b@web.de", "write protocol", "for java test", TodoCategory.Me, TodoStatus.Open, 0))).contains(updatedTodo);
     }
 
     @Test
