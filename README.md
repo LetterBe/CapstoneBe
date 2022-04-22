@@ -1,4 +1,4 @@
-# OrganizeYourself : my capstone for the Java fullstack developer Bootcamp 
+# Organize Yourself : my capstone for the Java fullstack developer Bootcamp 
 
 All your tasks in one place to be managed. Allows you to share tasks, let you know if it is already done  and, finally, rewards you when you are done with a task!
 
