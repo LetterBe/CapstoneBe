@@ -97,9 +97,9 @@
 .score {
     display: flex;
     flex-direction: column;
-    margin-right: 70rem;
+    margin-right: 40rem;
     margin-top: 25px;
-    margin-left: 220px;
+    margin-left: 130px;
     text-align:center;
     font-size: 3rem;
     background: #e2fafc;
