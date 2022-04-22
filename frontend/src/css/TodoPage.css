@@ -2,24 +2,42 @@
 .app2 {
     display: flex;
     flex-direction: column;
-    line-height: 1;
-    text-align:-moz-left;
-    width: 600px;
-    margin: 25px;
+    justify-content: space-evenly;
+    width: 490px;
     padding: 8px;
-    margin-top: 60px;
-    min-height:250px;
-    max-height:400px;
-    position:relative;
+    margin-left: 25px;
+    height: 350px;
     border:1px solid #E8E8E8;
     border-top:18px solid #0e7490;
     font-family:'Reenie Beanie';
     font-size:2em;
-    border-bottom-right-radius: 60px 5px;
     background: #c0ffff;
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    border-radius: 30px 30px;
 }
 
-.app2 :after{
+
+.bigPostIt {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-align:center;
+    width: 275px;
+    margin-top: 30px;
+    margin-left: 50px;
+    justify-content: space-between;
+    max-height:250px;
+    position:relative;
+    border:1px solid #E8E8E8;
+    border-top:18px solid #fdfd86;
+    font-family:'Reenie Beanie';
+    font-size:2em;
+    border-bottom-right-radius: 60px 5px;
+    background: #fdfd86;
+    transition: 0.9s;
+}
+
+.bigPostIt :after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -28,27 +46,28 @@
     width: 200px;
     height: 25px;
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.80);
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
     -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
     transform: matrix(-1, -0.1, 0, 1, 0, 0);
-
 }
 
+.postItContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .postIt {
     display: flex;
     flex-direction: column;
-    line-height: 1;
-    text-align:center;
     width: 275px;
     margin: 25px;
     margin-top: 60px;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: space-evenly;
     min-height:250px;
-    max-height:250px;
+    max-height:350px;
     position:relative;
     border:1px solid #E8E8E8;
-    border-top:18px solid #fdfd86;
     font-family:'Reenie Beanie';
     font-size:2em;
     border-bottom-right-radius: 60px 5px;
@@ -75,17 +94,27 @@
     transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
-.postItContainer {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .score {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
-    width: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 60px 5px;
-    background: #c0ffff;
+    margin-right: 70rem;
+    margin-top: 25px;
+    margin-left: 220px;
+    text-align:center;
+    font-size: 3rem;
+    background: #e2fafc;
+    justify-content: space-between;
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    border-radius: 30px 30px;
+
+}
+
+.postIdAndScore {
+    display: flex;
+    margin-top: 30px;
+    align-items: baseline;
+}
+
+.app2AndExample{
+    display: flex;
 }

@@ -17,11 +17,11 @@ export default function NavBar() {
 
     return (
         <div className='loginUndLogoutContainer'>
-            <Button label='Login' onClick={routeToLogin}/>
             <Button label='Logout ' onClick={() => {
                 logout();
                 routeToLogin()
             }}/>
+            <Button label='Login' onClick={routeToLogin}/>
         </div>
     )
 }

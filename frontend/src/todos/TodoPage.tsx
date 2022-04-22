@@ -42,16 +42,22 @@ export default function TodoPage() {
 
     return (
         <>
-            <div className='app2'>
+            <div className='postIdAndScore'>
+            <span className='app2AndExample'>
+                <div className='app2'>
                 <Text size='4xl'
-                      message={`${localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username') + ', nice to have you here!'}`}/>
-                <Text message='Here you create new Tasks, edit them and
+                      message={`${localStorage.getItem('username') === null ? '' : 'Hi,  ' + localStorage.getItem('username')}  ,`}/>
+                <Text message='here you can create new Tasks, edit them and,
                  when you are done, check it before deleting, so you
-                get your score higher'/>
-                <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
+                get your score higher! Ah... to edit a task just click on it!'/>
+                </div>
+            <div className='bigPostIt'>
+                    <TodoEdit onTodoChange={fetchAll} todoToChange={selectedTodo}/>
             </div>
-            <div className='score'>
-                <Text message={`Score: ${score}`}/>
+            </span>
+                <div className='score'>
+                    <Text message={`Score: ${score}`}/>
+                </div>
             </div>
             <div className='postItContainer'>
                 {todos.length > 0 && todos.map((todo) => <TodoItem key={todo.id} todoItem={todo}

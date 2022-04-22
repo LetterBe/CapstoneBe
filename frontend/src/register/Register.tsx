@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import Input from "../css/Input";
 import Button from "../css/Button";
 import Text from "../css/Text";
+import "../css/App.css"
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -46,7 +47,7 @@ const Register = () => {
     )
 
     return (
-        <div>
+        <div className='loginPage2 '>
             <Text message='You are new to OY? Then register yourself'/>
             <form onSubmit={register}>
             <Input  placeholder='Email' value={email}
