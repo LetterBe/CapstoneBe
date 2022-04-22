@@ -1,22 +1,7 @@
-# OrganizeYourself
+# OrganizeYourself : my capstone for the Java fullstack developer Bootcamp 
 
-All your tasks in one place to be managed by more than one user. Allows you to share tasks, let you know if it is already done or not plus by whom and, finally, rewards you when you are done with a task!
+All your tasks in one place to be managed by more than one user. Allows you to share tasks, let you know if it is already done  and, finally, rewards you when you are done with a task!
 
-## Creating an heroku app
-When creating the heroku app I recommend to use the heroku cli. Use the following commands to create the app and add the required buildpack.
-* `heroku create <your-app-name>`
-* `heroku buildpacks:set heroku/java --app=<your-app-name>`
+## Tech Stack
 
-## Project structure
-
-The project consists of to sub projects. The react project is located in the frontend directory and the Spring Boot project in the backend directory. To let heroku know that the main project is the Spring Boot project, there is a parent pom.xml in the root directory. That way, when heroku builds checks out the code and starts the build the parent pom and the backend module are built.<br />
-To let heroku know that the jar file is now in the target directory of the backend, the `Procfile` is needed.
-
-## Bundling the frontend into the backend jar
-
-The frontend project is built using the `com.github.eirslett:frontend-maven-plugin`. The `maven-resources-plugin` is used to copy the content of the resulting `build` directory to the backend's `target/classes/static` directory.<br />
-
-## Deployment to heroku
-
-Just connect your heroku app and yout GitHub repository on the heroku app's "Deploy"-tab.
-# CapstoneBe
+Java / Java 17, Spring Boot, JUnit 5, JWT, maven,  Unit, Component & Integration Tests, React, TypeScript, prop-types, Tailwind, AWS, MongoDB, REST, Git, Github Workflow,Docker, Heroku", Agile Workflow
