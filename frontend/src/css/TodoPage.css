@@ -51,20 +51,23 @@
     transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
+.postItContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .postIt {
     display: flex;
     flex-direction: column;
-    line-height: 1;
-    text-align:center;
     width: 275px;
     margin: 25px;
     margin-top: 60px;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: space-evenly;
     min-height:250px;
     max-height:350px;
     position:relative;
     border:1px solid #E8E8E8;
-    border-top:18px solid #fdfd86;
     font-family:'Reenie Beanie';
     font-size:2em;
     border-bottom-right-radius: 60px 5px;
@@ -89,11 +92,6 @@
     box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
     -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
     transform: matrix(-1, -0.1, 0, 1, 0, 0);
-}
-
-.postItContainer {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .score {
