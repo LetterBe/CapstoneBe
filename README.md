@@ -2,7 +2,7 @@
 
 All your tasks in one place to be managed. Allows you to share tasks, let you know if it is already done  and, finally, rewards you when you are done with a task!
 
-https://organize-yourself.herokuapp.com/
+https://organize-yourself.herokuapp.com/login
 
 
 ## Tech Stack
